@@ -84,8 +84,10 @@ class _WebViewExampleState extends State<WebViewExample> {
           );
         },
       )
-      // ..loadRequest(Uri.parse('https://flutter.dev'))
-      ..loadFlutterAsset('assets/www/index.html');
+      ..loadFlutterAsset('assets/www/index.html')
+
+      ///Set false to  Disable the Zoom WebView
+      ..enableZoom(false);
 
     // #docregion platform_features
     if (controller.platform is AndroidWebViewController) {
@@ -104,7 +106,6 @@ class _WebViewExampleState extends State<WebViewExample> {
       backgroundColor: Colors.purple,
       appBar: AppBar(
         title: const Text('Flutter WebView example'),
-        // This drop down menu demonstrates that Flutter widgets can be shown over the web view.
       ),
       body: WebViewWidget(controller: _controller),
     );
