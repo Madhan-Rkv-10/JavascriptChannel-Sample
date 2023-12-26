@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Validation</title>
+  <style>
+    /* CSS styles */
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #myForm {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    #textInput {
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    #submitButton {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #submitButton:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<form id="myForm" onsubmit="return validateForm()">
+  <input type="text" id="textInput" placeholder="Enter text..." required>
+  <button type="submit" id="submitButton">Submit</button>
+</form>
+
+<script>
+  // JavaScript for form validation and method call
+  function validateForm() {
+    var inputText = document.getElementById("textInput").value;
+
+    // Basic validation: Check if the input field is not empty
+    if (inputText.trim() === "") {
+      alert("Please enter some text!");
+      return false; // Prevent form submission
+    }
+
+    // Call some method or perform any action here after validation
+    someMethod(inputText); // Replace with your desired method or function
+
+    return true; // Allow form submission
+  }
+
+  // Replace this method with your desired functionality
+  function someMethod(text) {
+    //Toaster is Channel name which we have used in Flutter file
+    Toaster.postMessage(text);
+  }
+</script>
+
+</body>
+</html>
